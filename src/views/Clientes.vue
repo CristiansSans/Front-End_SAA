@@ -7,7 +7,6 @@
       </template>
       <h6>Código de empresa:</h6>
       <a-input v-model:value="clientData.businessCode" placeholder="Código de empresa" />
-      {{clientData.businessCode}}
       <h6>Nombre de empresa:</h6>
       <a-input  v-model:value="clientData.businessName" placeholder="Nombre de empresa" />
      

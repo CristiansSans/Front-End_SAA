@@ -81,6 +81,7 @@
 <script>
 import VsudButton from "@/components/VsudButton.vue";
 import axios from 'axios'
+import io from 'socket.io-client';
 import endPoint from '../../config-endpoint/endpoint.js'
 import router from '../router'
 
@@ -93,6 +94,7 @@ export default {
     return {
       tickets:[],
       searchInput: null,
+      socket : io(endPoint.endpointTarget),
       columns: [
         {
           title: 'Cliente',
@@ -202,6 +204,7 @@ export default {
           })
           if (createTicket) {
             this.getTickets()
+            //this.socket.emit('newTicket', createTicket)
           }
       }catch(err){
           if (!err.response) {
@@ -243,6 +246,12 @@ export default {
       dat = split[2]+"-"+split[1]+"-"+split[0] + " ("+spli
       return dat
     }
-  }
+  },
+  mounted (){
+      this.socket.on('ticket', (data) => {
+        console.log(data)
+          this.getTickets()
+      });
+    }
 };
 </script>

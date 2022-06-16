@@ -386,7 +386,7 @@ export default {
               this.$swal({
                   customClass: {container:"fixModal"},
                   icon: 'error',
-                  title: 'Error de conexión',
+                  title: 'Error de conexión (cliente)',
                   showConfirmButton: false,
                   timer: 1500
               })
@@ -459,6 +459,11 @@ export default {
           }
       }
     },
-  }
+  },
+  mounted (){
+      this.socket.on('ticket', (data) => {
+          this.getTickets()
+      });
+    }
 };
 </script>

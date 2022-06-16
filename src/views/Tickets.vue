@@ -117,7 +117,7 @@ export default {
           key: 'site',
         },
         {
-          title: 'Tipo de equipo',
+          title: 'Nombre de equipo',
           dataIndex: 'product',
           key: 'product',
           customFilterDropdown: true,
@@ -137,7 +137,7 @@ export default {
           key: 'ip',
         },
         {
-          title: 'Clasificación',
+          title: 'Alias de equipo',
           dataIndex: 'type',
           key: 'type',
         },
